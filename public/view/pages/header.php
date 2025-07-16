@@ -6,7 +6,7 @@
 	$name = 'Anonim';
 	$firstLetter = $name[0];
 	$entereButton = '
-	<form class="container-fluid justify-content-start" action="/page/auth" method="POST">
+	<form class="d-flex justify-content-start ps-2" action="/page/auth" method="POST">
     <button class="btn btn-sm btn-outline-primary" type="submit">Войти</button>
 	</form>
 	';
