@@ -1,12 +1,16 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
-$layout = file_get_contents('view/template/layout.php');
-$header = require('view/template/header.php');
+$layout = file_get_contents('view/template/layout.html');
+$header = require('view/pages/header.php');
 
 
 $route = '^/$';
 if(preg_match("#$route#", $url, $params)){
 	$page = include 'view/pages/home.php';
+}
+$route = '^/page/(?<slug1>[a-zA-Z0-9_-]+)$';
+if(preg_match("#$route#", $url, $params)){
+	$page = include 'view/pages/slug1.php';
 }
 
 if(!isset($page)){
