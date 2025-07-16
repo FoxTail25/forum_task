@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<title>{{ title in layout }}</title>
+</head>
+<body>
+<header>
+<div  class="p-3 text-center">
+	<h2>
+		Практика на движок в PHP
+	</h2>
+	<h4 class="">
+        Реализовать форум с обязательной регистрацией. Зарегистрованный пользователь может создавать темы, отвечать в них. Кроме обычных пользователей должны быть еще и модераторы, которые могут удалять любые темы и банить пользователей, а также администратор сайта, который имеет доступ к админке.
+	</h4>
+</div>
+</header>
+<main>
+	{{ content in layout }}
+</main>
+<footer>
+	<div class="p-3 text-center">
+	&copy; foxtail25 2025
+	</div>
+</footer>
+</body>
+</html>
