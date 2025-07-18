@@ -14,7 +14,7 @@
 	$header = str_replace('{{ user name }}', $name , $header);
 	$header = str_replace('{{ first letter }}', $firstLetter, $header);
 	
-	if($url != '/page/auth' and $url != '/page/register') {
+	if($url != '/page/auth' and $url != '/page/reg') {
 		$header = str_replace('{{ entere button }}', $entereButton, $header);
 	} else {
 		$header = str_replace('{{ entere button }}', '', $header);
