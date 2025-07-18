@@ -1,13 +1,14 @@
 <div class="container-sm">
-  <form>
+  <form method="POST">
     <div class="mb-3">
       <label for="Inputlogin" class="form-label">Логин</label>
-      <input type="text" class="form-control" id="Inputlogin" />
+      <input type="text" class="form-control" id="Inputlogin" name="login"/>
     </div>
     <div class="mb-3">
       <label for="InputPassword" class="form-label">Пароль</label>
-      <input type="password" class="form-control" id="InputPassword" />
+      <input type="password" class="form-control" id="InputPassword"  name="password"/>
     </div>
-    <button type="submit" class="btn btn-primary">Отправить</button>
+    <button type="submit" class="btn btn-primary">войти</button>
+    <a href="/page/reg"><button type="button" class="btn btn-primary">зарегистрироваться</button></a>
   </form>
 </div>

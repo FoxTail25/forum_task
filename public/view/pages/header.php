@@ -6,9 +6,9 @@
 	$name = 'Anonim';
 	$firstLetter = $name[0];
 	$entereButton = '
-	<form class="d-flex justify-content-start ps-2" action="/page/auth" method="POST">
+	<a href="/page/auth" class="ps-2">
     <button class="btn btn-sm btn-outline-primary" type="submit">Войти</button>
-	</form>
+	</a>
 	';
 	}
 	$header = str_replace('{{ user name }}', $name , $header);
