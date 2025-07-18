@@ -5,8 +5,10 @@ if($params['slug1'] == 'auth') {
     $content .= include('auth.php');
 }
 if($params['slug1'] == 'reg') {
-    $regForm = file_get_contents('view/template/reg.html');
-    $content .=$regForm;
+    $content .= include('reg.php');
+}
+if($params['slug1'] == 'logoff') {
+    require('logoff.php');
 }
 
 
