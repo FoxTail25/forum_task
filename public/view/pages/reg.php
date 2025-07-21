@@ -1,8 +1,11 @@
 <?php
+
+
 if(!empty($_POST['login'])) {
 	if(!empty($_POST['email'])) {
 		if(!empty($_POST['pass'])) {
 			if(!empty($_POST['checkpass'])) {
+				addUserDataInDB($_POST);
 				header('Location: /');
 				$_SESSION['user']['auth'] = true;
 				$_SESSION['user']['name'] = $_POST['login'];
@@ -24,5 +27,10 @@ if(!empty($_POST['login'])) {
 	return file_get_contents('view/template/reg.html');
 }
 
+function addUserDataInDB($userDataArr) {
 
+include('db/connect.php');
+$query = "INSERT INTO user (name, email, pass) VALUE('$userDataArr[login]', '$userDataArr[email]', '$userDataArr[pass]')";
+mysqli_query($link, $query) or die(mysqli_error($link));
+}
 ?>

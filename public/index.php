@@ -4,6 +4,8 @@ $url = $_SERVER['REQUEST_URI'];
 $layout = file_get_contents('view/template/layout.html');
 $header = require('view/pages/header.php');
 
+// require('db/connect.php');
+
 
 $route = '^/$';
 if(preg_match("#$route#", $url, $params)){
