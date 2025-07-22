@@ -32,5 +32,7 @@ function addUserDataInDB($userDataArr) {
 include('db/connect.php');
 $query = "INSERT INTO user (name, email, pass) VALUE('$userDataArr[login]', '$userDataArr[email]', '$userDataArr[pass]')";
 mysqli_query($link, $query) or die(mysqli_error($link));
+$id = mysqli_insert_id($link);
+$_SESSION['user']['id'] = $id;
 }
 ?>

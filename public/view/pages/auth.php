@@ -15,6 +15,7 @@ if(!empty($user)) {
 	header('Location: /');
 	$_SESSION['user']['auth'] = true;
 	$_SESSION['user']['name'] = $_POST['login'];
+	$_SESSION['user']['id'] = $user['id'];
 	die();
 } else {
 	
