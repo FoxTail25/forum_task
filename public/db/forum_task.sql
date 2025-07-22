@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.127.126.26
--- Время создания: Июл 22 2025 г., 09:29
+-- Время создания: Июл 22 2025 г., 09:50
 -- Версия сервера: 8.0.35
 -- Версия PHP: 8.1.28
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- База данных: `forum_task`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `topics`
+--
+
+CREATE TABLE `topics` (
+  `id` int NOT NULL,
+  `slug` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(32) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `topics`
+--
+
+INSERT INTO `topics` (`id`, `slug`, `name`) VALUES
+(1, 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -48,6 +67,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `pass`, `birth_date`, `role_id`) VALU
 --
 
 --
+-- Индексы таблицы `topics`
+--
+ALTER TABLE `topics`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -56,6 +81,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `topics`
+--
+ALTER TABLE `topics`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
