@@ -2,11 +2,12 @@
 	<div class="container-fluid justify-content-start">
 		<ul class="navbar-nav flex-row">
 			<li class="nav-item">
-				<div class="bg-danger d-flex justify-content-center align-items-center" style="width: 31px; height:31px; border-radius: 50%; color: white;">
+				<div class="{{ bg-color }} d-flex justify-content-center align-items-center" style="width: 31px; height:31px; border-radius: 50%; color: white;">
 					<span class="fw-bold align-middle">{{ first letter }}</span>
 				</div>
 			</li>
 			<li class="nav-item">
+				<span class="ps-2 align-middle">{{ user role }}</span>
 				<span class="ps-2 align-middle">{{ user name }}</span>
 			</li>
 		</ul>

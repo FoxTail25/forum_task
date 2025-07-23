@@ -4,8 +4,11 @@ $header = file_get_contents('view/template/header.html');
 	
 if(!isset($_SESSION['user']['auth'])) {
 	$name = 'Anonim';
+	$role = 'guest';
 } else {
 	$name = $_SESSION['user']['name'];
+	$role = $_SESSION['user']['role'];
+
 }
 $firstLetter = $name[0];
 $entereButton = '
@@ -18,6 +21,16 @@ $exitButton = '
 <button class="btn btn-sm btn-outline-primary" type="submit">выйти</button>
 </a>
 ';
+	if($role == 'moder') {
+		$bgColor = 'bg-success';
+	} else if ($role == 'admin'){
+		$bgColor = 'bg-danger';
+	} else {
+		$bgColor = 'bg-primary';
+	}
+	
+	$header = str_replace('{{ bg-color }}', $bgColor , $header);
+	$header = str_replace('{{ user role }}', $role , $header);
 	$header = str_replace('{{ user name }}', $name , $header);
 	$header = str_replace('{{ first letter }}', $firstLetter, $header);
 	
