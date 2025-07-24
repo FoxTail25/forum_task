@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-	<div class="container-fluid justify-content-start">
+	<div class="container-fluid justify-content-start  w-50">
 		<ul class="navbar-nav flex-row">
 			<li class="nav-item">
-				<div class="{{ bg-color }} d-flex justify-content-center align-items-center" style="width: 31px; height:31px; border-radius: 50%; color: white;">
+				<div class="{{ bg-color }} d-flex justify-content-center align-items-center"
+					style="width: 31px; height:31px; border-radius: 50%; color: white;">
 					<span class="fw-bold align-middle">{{ first letter }}</span>
 				</div>
 			</li>
@@ -13,7 +14,33 @@
 		</ul>
 		{{ entere button }}
 	</div>
-	<div class="container-fluid justify-content-end">
-		?
+	<div class="container-fluid justify-content-end w-50">
+		<button class="quest" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+			?
+		</button>
 	</div>
 </nav>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+	aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="staticBackdropLabel">Практика на движок в PHP</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-modal-close-1"></button>
+			</div>
+			<div class="modal-body">
+				<h4 class="text-secondary">
+					Реализуйте форум с обязательной регистрацией. Зарегистрованный пользователь может создавать темы,
+					отвечать в них.
+					Кроме обычных пользователей должны быть еще и модераторы, которые могут удалять любые темы и банить
+					пользователей, а
+					также администратор сайта, который имеет доступ к админке.
+				</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btn-modal-close-2">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
