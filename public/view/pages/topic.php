@@ -13,7 +13,19 @@
 		header("Location: /page/$params[slug1]");
     }
 
-	$content .= "<h5 class=\"text-center\">$params[slug1]</h5>";
+	if(isset($_SESSION['user']['role'])){
+		
+		if($_SESSION['user']['role'] == 'moder' or $_SESSION['user']['role'] == 'moder'){
+			$content .= "<h5 class=\"text-center\">$params[slug1]
+			
+			<button type=\"button\" class=\"btn btn-danger\">Удалить тему</button>
+			
+			</h5>";
+		}
+
+	} else {
+		$content .= "<h5 class=\"text-center\">$params[slug1]</h5>";
+	}
 	
 	$query = "SELECT 
 	messages.text,
