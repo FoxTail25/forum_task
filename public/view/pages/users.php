@@ -20,16 +20,50 @@ for($data = []; $row = mysqli_fetch_assoc($db_answer); $data[]=$row);
 
 // var_dump($data);
 
-$con = "<h1>hello from users!</h1>";
-$con .= '<ul>';
+$con = "<h1>Таблица пользователей</h1>";
+
+$con .= '<form method="POST">';
+$con .= '<table>';
+$con .= '<thead><tr><th>user_id</th><th>user_name</th><th>user_role</th><th>user_ban</th><th>change</th></tr></thead>';
+$con .= '<tbody>';
 foreach($data as $user){
-	$con .= '<li>';	
-	$con .= "<span class=\"ps-2\">$user[user_id]</span>"
-	."<span class=\"ps-2\">$user[user_name]</span>"
-	."<span class=\"ps-2\">$user[user_role]</span>"
-	."<span class=\"ps-2\">$user[user_ban]</span>";
-	$con .= '</li>';
+	$ban = $user['user_ban'];
+	$neban = !$ban;
+	$con .= '<tr>';	
+	$con .= "<td>$user[user_id]</td>"
+	."<td>$user[user_name]</td>"
+	."<td>$user[user_role]</td>"
+	// ."<td>$user[user_ban]</td>";
+	."<td><select>
+	<option value=\"$ban\">нет</option>
+	<option value=\"$neban\">да</option>
+	</select></td>";
+	$con .= '</tr>';
 }
-$con .= '</ul>';
+$con .= '</tbody>';
+$con .= '</table>';
+$con .= '</form>';
 return $con;
 ?>
+<!-- 
+
+$con = "<h1>Таблица пользователей</h1>";
+$con .= '<table>';
+$con .= '<thead><tr><th>user_id</th><th>user_name</th><th>user_role</th><th>user_ban</th></tr></thead>';
+$con .= '<tbody>';
+foreach($data as $user){
+	$ban = $user['user_ban'];
+	$neban = !$ban;
+	$con .= '<tr>';	
+	$con .= "<td>$user[user_id]</td>"
+	."<td>$user[user_name]</td>"
+	."<td>$user[user_role]</td>"
+	// ."<td>$user[user_ban]</td>";
+	."<td><select>
+	<option value=\"$ban\">нет</option>
+	<option value=\"$neban\">да</option>
+	</select></td>";
+	$con .= '</tr>';
+}
+$con .= '</tbody>';
+$con .= '</table>'; -->

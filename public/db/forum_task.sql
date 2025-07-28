@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.127.126.26
--- Время создания: Июл 23 2025 г., 11:43
+-- Время создания: Июл 28 2025 г., 17:24
 -- Версия сервера: 8.0.35
 -- Версия PHP: 8.2.18
 
@@ -41,7 +41,8 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`id`, `slug`, `text`, `topic_id`, `user_id`) VALUES
 (1, '1753181251', '1321321321 231 321321 32 1321321', 16, 1),
-(22, '1753185499', 'Снова тест сообщения', 16, 1);
+(22, '1753185499', 'Снова тест сообщения', 16, 1),
+(24, '1753690074', 'test testov testovich 5', 17, 2);
 
 -- --------------------------------------------------------
 
@@ -65,8 +66,7 @@ INSERT INTO `topics` (`id`, `slug`, `name`) VALUES
 (13, 'tema3', 'tema3'),
 (15, 'tema4', 'tema4'),
 (16, 'tema45', 'tema45'),
-(17, 'tema5', 'tema5'),
-(18, 'tema6', 'tema6');
+(17, 'tema5', 'tema5');
 
 -- --------------------------------------------------------
 
@@ -80,16 +80,17 @@ CREATE TABLE `user` (
   `email` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `pass` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `birth_date` date DEFAULT NULL,
-  `role_id` int DEFAULT NULL
+  `role_id` int DEFAULT NULL,
+  `ban` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `pass`, `birth_date`, `role_id`) VALUES
-(1, 'user1', 'email@email.ru', '123', NULL, 1),
-(2, 'moder', 'mail@email.com', 'mo', NULL, 2);
+INSERT INTO `user` (`id`, `name`, `email`, `pass`, `birth_date`, `role_id`, `ban`) VALUES
+(1, 'user1', 'email@email.ru', '123', NULL, 1, 0),
+(2, 'moder', 'mail@email.com', 'mo', NULL, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `topics`
