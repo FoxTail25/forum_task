@@ -16,13 +16,15 @@
 	if(isset($_POST['del'])){
 		$delTopic = $_POST['del'];
 		$query = "SELECT id FROM topics WHERE name = '$delTopic'";
-		$id_delele = mysqli_fetch_assoc(mysqli_query($link, $query));
+		$id_delete = mysqli_fetch_assoc(mysqli_query($link, $query))['id'];
 		
+		$query = "DELETE FROM messages WHERE topic_id = '$id_delete'";
+		mysqli_query($link, $query);
+		$query = "DELETE FROM topics WHERE id = '$id_delete'";
+		mysqli_query($link, $query);
 		
-		// $query = "DELETE FROM topics WHERE name = '$delTopic'";
-		// mysqli_query($link, $query);
-		// header('Location: /');
-		// die();
+		header('Location: /');
+		die();
 	}
 
 	if(isset($_SESSION['user']['role'])){
