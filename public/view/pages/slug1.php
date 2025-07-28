@@ -7,18 +7,10 @@ if($params['slug1'] == 'auth') {
     $content .= include('reg.php');
 } else if($params['slug1'] == 'logoff') {
     require('logoff.php');
+} else if($params['slug1'] == 'users') {
+    $content .= include('users.php');
 } else {
     include('db/connect.php');
-
-    // if(isset($_POST['new_message'])){
-    // $slug = time();
-    // $topic_id = $_SESSION['user']['topic_id'];
-    // $user_id = $_SESSION['user']['id'];
-    // $message = $_POST['new_message'];
-    // $query = "INSERT INTO messages (slug, text, topic_id, user_id) VALUES ('$slug', '$message', '$topic_id', '$user_id')";
-    // mysqli_query($link, $query);
-    // }
-
 
 
     $query = "SELECT * FROM topics";
