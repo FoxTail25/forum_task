@@ -13,12 +13,26 @@
 		header("Location: /page/$params[slug1]");
     }
 
+	if(isset($_POST['del'])){
+		$delTopic = $_POST['del'];
+		$query = "SELECT id FROM topics WHERE name = '$delTopic'";
+		$id_delele = mysqli_fetch_assoc(mysqli_query($link, $query));
+		
+		
+		// $query = "DELETE FROM topics WHERE name = '$delTopic'";
+		// mysqli_query($link, $query);
+		// header('Location: /');
+		// die();
+	}
+
 	if(isset($_SESSION['user']['role'])){
 		
 		if($_SESSION['user']['role'] == 'moder' or $_SESSION['user']['role'] == 'moder'){
 			$content .= "<h5 class=\"text-center\">$params[slug1]
-			
-			<button type=\"button\" class=\"btn btn-danger\">Удалить тему</button>
+			<form method=\"POST\">
+			<input class=\"d-none\" name=\"del\" value=\"$params[slug1]\">
+			<button type=\"submit\" class=\"btn btn-danger\">Удалить тему</button>
+			</form>
 			
 			</h5>";
 		}
