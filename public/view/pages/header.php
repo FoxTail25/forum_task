@@ -48,9 +48,10 @@ $exitButton = '
 		$header = str_replace('{{ adm page }}', '', $header);
 	} else {
 		if($_SESSION['user']['role'] == 'moder' or $_SESSION['user']['role'] == 'admin') {
-			$header = str_replace('{{ adm page }}', '<a class="ps-2" href="page/users">users</a>', $header);
+			$header = str_replace('{{ adm page }}', '<a class="ps-2" href="/page/users">users</a>', $header);
 			
 		}
+		$header = str_replace('{{ adm page }}', '', $header);
 	}
 	return $header;
 ?>
