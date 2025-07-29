@@ -10,7 +10,7 @@ if(!isset($_SESSION['user']['auth'])) {
 	$role = $_SESSION['user']['role'];
 
 }
-$firstLetter = $name[0];
+$firstLetter = mb_strtoupper($name[0]);
 $entereButton = '
 <a href="/page/auth" class="ps-2">
 <button class="btn btn-sm btn-outline-primary" type="submit">Войти</button>
