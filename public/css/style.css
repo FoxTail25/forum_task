@@ -23,3 +23,7 @@ label {
 td {
 	text-align: center;
 }
+th {
+	padding: 0 6px;
+	text-align: center;
+}

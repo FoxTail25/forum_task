@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.127.126.26
--- Время создания: Июл 28 2025 г., 17:24
+-- Время создания: Июл 29 2025 г., 16:06
 -- Версия сервера: 8.0.35
 -- Версия PHP: 8.2.18
 
@@ -89,8 +89,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `pass`, `birth_date`, `role_id`, `ban`) VALUES
-(1, 'user1', 'email@email.ru', '123', NULL, 1, 0),
-(2, 'moder', 'mail@email.com', 'mo', NULL, 2, 0);
+(1, 'user1', 'email@email.ru', '123', NULL, 3, 0),
+(2, 'moder', 'mail@email.com', 'mo', NULL, 2, 0),
+(3, 'user2', 'email@mail.com', '123', NULL, 1, 1),
+(5, 'admin', 'admin@emai.ru', 'adm', NULL, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -160,7 +162,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `user_role`
