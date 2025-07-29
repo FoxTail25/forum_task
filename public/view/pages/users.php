@@ -8,16 +8,19 @@ if(isset($_POST['user_ban'])) {
 	}else {
 		$userBan = 1;
 	};
-
-	$query = "UPDATE user SET ban = '$userBan' WHERE id = '$userId'";
-	mysqli_query($link, $query);
-
-	$_POST['user_id'] = null;
-	$_POST['user_ban'] = null;
-	unset($_POST['user_id']);
-	unset($_POST['user_ban']);
-	header('Location:/page/users');
-	die();
+	$query = "SELECT role_id FROM user WHERE id = '$userId'";
+	$id = mysqli_fetch_assoc(mysqli_query($link, $query))['role_id'];
+	if($id != 3) {
+		$query = "UPDATE user SET ban = '$userBan' WHERE id = '$userId'";
+		mysqli_query($link, $query);
+	}
+	
+		$_POST['user_id'] = null;
+		$_POST['user_ban'] = null;
+		unset($_POST['user_id']);
+		unset($_POST['user_ban']);
+		header('Location:/page/users');
+		die();
 }
 if(isset($_POST['user_role'])) {
 	$userId = $_POST['user_id'];
@@ -79,7 +82,16 @@ foreach($data as $user){
 		<input class="d-none" name="user_id" value="'.$user['user_id'].'">
 		<input class="d-none" name="user_ban" value="'.$user['user_ban'].'">';
 
-		$con .= $user['user_ban'] ? '<input type="submit" value="разбанить">' : '<input type="submit" value="забанить">';
+		if ($user['user_ban']) {
+
+			$con .= '<input type="submit" value="разбанить">';
+		} else {
+			$con .= '<input type="submit"';
+			if($user['user_role'] == 'admin') {
+				$con .= ' disabled ';
+			}
+			$con .= 'value="забанить">';
+		} 
 
 		$con .= '</form></td>';
 		if($_SESSION['user']['role'] == 'moder') {
