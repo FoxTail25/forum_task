@@ -1,8 +1,6 @@
 <?php 
 include('db/connect.php');
 $query = "SELECT
--- user.id, user.name, user_role.role as r,
--- *
 user.id as user_id, 
 user.name as user_name,
 user_role.role as user_role,
@@ -22,27 +20,37 @@ for($data = []; $row = mysqli_fetch_assoc($db_answer); $data[]=$row);
 
 $con = "<h1>Таблица пользователей</h1>";
 
-$con .= '<form method="POST">';
+// $con .= '<form method="POST">';
 $con .= '<table>';
 $con .= '<thead><tr><th>user_id</th><th>user_name</th><th>user_role</th><th>user_ban</th><th>change</th></tr></thead>';
 $con .= '<tbody>';
+// foreach($data as $user){
+// 	$ban = $user['user_ban'];
+// 	$neban = !$ban;
+// 	$con .= '<tr>';	
+// 	$con .= "<td>$user[user_id]</td>"
+// 	."<td>$user[user_name]</td>"
+// 	."<td>$user[user_role]</td>"
+// 	// ."<td>$user[user_ban]</td>";
+// 	."<td><select>
+// 	<option value=\"$ban\">нет</option>
+// 	<option value=\"$neban\">да</option>
+// 	</select></td>";
+// 	$con .= '</tr>';
+// }
 foreach($data as $user){
-	$ban = $user['user_ban'];
-	$neban = !$ban;
-	$con .= '<tr>';	
-	$con .= "<td>$user[user_id]</td>"
-	."<td>$user[user_name]</td>"
-	."<td>$user[user_role]</td>"
-	// ."<td>$user[user_ban]</td>";
-	."<td><select>
-	<option value=\"$ban\">нет</option>
-	<option value=\"$neban\">да</option>
-	</select></td>";
-	$con .= '</tr>';
+	$con .= '<tr>';
+		$con .= "<td>$user[user_id]</td>";
+		$con .= "<td>$user[user_name]</td>";
+		$con .= "<td>$user[user_role]</td>";
+		$con .= "<td>$user[user_ban]</td>";
+		$con .= '';
+		$con .= '</tr>';
+
 }
 $con .= '</tbody>';
 $con .= '</table>';
-$con .= '</form>';
+// $con .= '</form>';
 return $con;
 ?>
 <!-- 
