@@ -1,6 +1,7 @@
 <?php
 include('db/connect.php');
 
+// бан/разбан
 if(isset($_POST['user_ban'])) {
 	$userId = $_POST['user_id'];
 	if($_POST['user_ban']) {
@@ -8,6 +9,7 @@ if(isset($_POST['user_ban'])) {
 	}else {
 		$userBan = 1;
 	};
+	// админа банить нельзя
 	$query = "SELECT role_id FROM user WHERE id = '$userId'";
 	$id = mysqli_fetch_assoc(mysqli_query($link, $query))['role_id'];
 	if($id != 3) {
@@ -22,6 +24,7 @@ if(isset($_POST['user_ban'])) {
 		header('Location:/page/users');
 		die();
 }
+// смена роли
 if(isset($_POST['user_role'])) {
 	$userId = $_POST['user_id'];
 	$role = $_POST['user_role'];
@@ -88,7 +91,7 @@ foreach($data as $user){
 		} else {
 			$con .= '<input type="submit"';
 			if($user['user_role'] == 'admin') {
-				$con .= ' disabled ';
+				$con .= ' disabled '; // отключение кнопки бана если роль админ
 			}
 			$con .= 'value="забанить">';
 		} 
